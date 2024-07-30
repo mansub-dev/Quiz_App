@@ -127,23 +127,23 @@ export default function QuizPage({
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-            <div className=" max-w-2xl bg-white p-8 border border-gray-500 rounded-lg shadow-md relative w-4/5 h-2/5 md:w-3/5 ">
+            <div className=" max-w-2xl bg-white p-8 border border-gray-500 rounded-lg shadow-md relative w-4/5 h-2/5 md:w-900 ">
                 <div
                     className="absolute top-0 left-0 h-1 bg-green-500 transition-all duration-500"
                     style={{ width: `${lineWidth}%` }}
                 />
                 <div className="flex flex-row justify-between w-full mb-4 pt-6 ">
-                    <h4 className="text-left text-xl text-slate-500 font-bold ">
+                    <h4 className="text-left text-xl text-slate-500 font-bold hidden md:block ">
                         Question {currentIndex + 1} of {questions.length}
                     </h4>
-                    <h4 className="text-right text-xl text-slate-500 font-bold">
-                        <span className="hidden md:block"> Time Remaining:</span> {formatSeconds(seconds)}
+                    <h4 className="md:text-right text-xl text-slate-500 font-bold ">
+                        Time Remaining: {formatSeconds(seconds)}
                     </h4>
                 </div>
                 {questions.length > 0 && (
-                    <div className="grid">
+                    <div className="grid ">
                         <h4 className="text-xl mb-4">{questions[currentIndex].question}</h4>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-4/5">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 lg:mt-4 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-4/5">
                             {questions[currentIndex].answers.map((answer, index) => (
                                 <button
                                     key={index}

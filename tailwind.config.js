@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       width: {
+        '500': '500px',
+        '800': '800px',
         '900': '900px',
-        '300': '300px',
-      },
-      borderRadius: {
-        'rounded': '50%',
+        '1200px': '1200px',
+
       },
     },
   },

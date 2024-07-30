@@ -81,7 +81,7 @@ export default function GetPage({ bigState, setBigState }) {
     return (
         <>
             <div className='bg-gray-50 min-h-screen flex flex-col justify-center items-center'>
-                <div className='flex flex-col items-start bg-slate-50 p-4 border border-slate-400 text-black rounded w-4/5 h-2/5 md:w-500 '>
+                <div className='flex flex-col items-start bg-slate-50 p-4 border border-slate-400 text-black rounded w-4/5 h-2/5 md:w-2/5 '>
                     <h6 className="text-3xl my-3 text-gray-800 font-bold">Your Quiz Detail is Here</h6>
                     <h1 className="text-x text-gray-600 my-3 font-mono">Topic:<span className="text-black" > {topic}</span></h1>
                     <h1 className="text-x text-gray-600 my-3 font-mono">Difficulty:<span className="text-black" > {difficulty} </span> </h1>
