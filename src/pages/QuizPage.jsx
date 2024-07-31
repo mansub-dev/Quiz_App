@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { formatSeconds } from "../utils/utils";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 export default function QuizPage({
     bigState: {
@@ -21,7 +22,6 @@ export default function QuizPage({
     const [userAnswers, setUserAnswers] = useState(new Array(questionCount).fill(null));
     const [quizFinished, setQuizFinished] = useState(false);
 
-    const navigate = useNavigate();
 
     useEffect(() => {
         let timer;
@@ -81,7 +81,7 @@ export default function QuizPage({
     };
 
     const handleHome = () => {
-        navigate("/");
+
         localStorage.clear();
         setBigState({
             difficulty: null,
@@ -113,12 +113,13 @@ export default function QuizPage({
                         </div>
                     </div>
                     <p className="mt-3">You answered {calculateResults()} out of {questions.length} questions correctly</p>
-                    <button
+                    <Link to="/"><button
                         onClick={handleHome}
                         className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
                     >
                         Home
                     </button>
+                    </Link>
                 </div>
             </div>
 
@@ -165,13 +166,16 @@ export default function QuizPage({
                                 >
                                     Next
                                 </button>
+
                             ) : (
+
                                 <button
                                     className="bg-green-600 text-white py-2 px-4 rounded mt-4"
                                     onClick={handleSubmit}
                                 >
                                     Submit
                                 </button>
+
                             )}
                         </div>
                     </div>

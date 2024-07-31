@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import mindImage from "/mind.svg";
 import Selector from "../components/QuizSetting";
 
@@ -6,15 +6,14 @@ import Selector from "../components/QuizSetting";
 export default function HomePage({ bigState, setBigState }) {
     const { difficulty, topic, questionCount } = bigState;
 
-    const navigate = useNavigate();
 
     const handleGetQuiz = () => {
-        navigate("./get");
 
         setBigState((prev) => ({
             ...structuredClone(prev),
             getData: true,
         }));
+
     };
 
     return (
@@ -42,12 +41,14 @@ export default function HomePage({ bigState, setBigState }) {
                 </div>
                 <div className="md:flex md:justify-end md:items-end md:absolute md:bottom-4 md:right-4 flex justify-center items-center">
                     {topic && difficulty && questionCount ? (
-                        <button
-                            onClick={handleGetQuiz}
-                            className="bg-green-600 text-white py-2 px-4 m-2 rounded"
-                        >
-                            Get Quiz
-                        </button>
+                        <Link to="/get">
+                            <button
+                                onClick={handleGetQuiz}
+                                className="bg-green-600 text-white py-2 px-4 m-2 rounded"
+                            >
+                                Get Quiz
+                            </button>
+                        </Link>
                     ) : null}
 
                 </div>

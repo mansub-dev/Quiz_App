@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
+import Error from "./pages/ErrorPage";
 import GetPage from "./pages/GetPage";
 
-const o = {
+const initialState = {
     currentIndex: 0,
     questions: [
         {
@@ -23,30 +24,27 @@ const o = {
 };
 
 function App() {
-    //   const [difficulty, setDifficulty] = useState("");
-    //   const [topic, setTopic] = useState("");
-    //   const [questionCount, setQuestionCount] = useState(0);
+    const [bigState, setBigState] = useState(initialState);
 
-    const [bigState, setBigState] = useState(o);
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <HomePage bigState={bigState} setBigState={setBigState} />,
+            errorElement: <Error />
+        },
+        {
+            path: "/get",
+            element: <GetPage bigState={bigState} setBigState={setBigState} />,
+            errorElement: <Error />
+        },
+        {
+            path: "/quiz",
+            element: <QuizPage bigState={bigState} setBigState={setBigState} />,
+            errorElement: <Error />
+        },
+    ]);
 
-    return (
-        <Router>
-            <Routes>
-                <Route
-                    path="/"
-                    element={<HomePage bigState={bigState} setBigState={setBigState} />}
-                />
-                <Route
-                    path="/get"
-                    element={<GetPage bigState={bigState} setBigState={setBigState} />}
-                />
-                <Route
-                    path="/quiz"
-                    element={<QuizPage bigState={bigState} setBigState={setBigState} />}
-                />
-            </Routes>
-        </Router>
-    );
+    return <RouterProvider router={router} />;
 }
 
 export default App;
