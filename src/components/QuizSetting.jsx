@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Selector({ setBigState }) {
-    const questionArry = ["C++", "JavaScript", "Python", "SQL"];
+    const topics = ["C++", "JavaScript", "Python", "SQL"];
     const difficulties = ["Easy", "Medium", "Hard", "Expert"];
     const counts = [5, 10, 15, 20];
 
@@ -13,19 +13,22 @@ export default function Selector({ setBigState }) {
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [selectedCount, setSelectedCount] = useState(null);
 
+    const formatOption = (option, selectedOption) =>
+        option === selectedOption ? `• ${option}` : option;
+
     return (
         <div className="bg-slate-50 w-full flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-4/5">
                 <div className="relative">
                     <button
                         onClick={() => setIsTopicOpen((prev) => !prev)}
-                        className="bg-slate-200 text-black py-2 px-4 m-2 rounded w-full"
+                        className="bg-slate-200 text-black py-2 px-4 m-2 rounded w-full "
                     >
                         {selectedTopic ? `${selectedTopic}` : "Select Topic"}
                     </button>
                     {isTopicOpen && (
                         <div className="absolute top-full bg-slate-100 text-black py-2 px-4 rounded shadow-md z-10 w-full">
-                            {questionArry.map((item) => (
+                            {topics.map((item) => (
                                 <button
                                     key={item}
                                     onClick={() => {
@@ -36,7 +39,8 @@ export default function Selector({ setBigState }) {
                                         }));
                                         setIsTopicOpen(false);
                                     }}
-                                    className="block text-left py-2 px-4 w-full hover:bg-gray-200"
+                                    className={`block text-left py-2 px-4 w-full hover:bg-gray-200 ${selectedTopic === item ? "dot-before items-right" : "items-right"
+                                        }`}
                                 >
                                     {item}
                                 </button>
@@ -65,7 +69,8 @@ export default function Selector({ setBigState }) {
                                         }));
                                         setIsDifficultyOpen(false);
                                     }}
-                                    className="block text-left py-2 px-4 w-full hover:bg-gray-200"
+                                    className={`block text-left py-2 px-4 w-full hover:bg-gray-200 ${selectedDifficulty === item ? "dot-before items-right" : "items-right"
+                                        }`}
                                 >
                                     {item}
                                 </button>
@@ -94,7 +99,8 @@ export default function Selector({ setBigState }) {
                                         }));
                                         setIsCountOpen(false);
                                     }}
-                                    className="block text-left py-2 px-4 w-full hover:bg-gray-200"
+                                    className={`block text-left py-2 px-4 w-full hover:bg-gray-200 ${selectedCount === item ? "dot-before items-right" : "items-right"
+                                        }`}
                                 >
                                     {item}
                                 </button>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
-import Error from "./pages/ErrorPage";
 import GetPage from "./pages/GetPage";
 
 const initialState = {
@@ -30,17 +29,17 @@ function App() {
         {
             path: "/",
             element: <HomePage bigState={bigState} setBigState={setBigState} />,
-            errorElement: <Error />
+
         },
         {
             path: "/get",
             element: <GetPage bigState={bigState} setBigState={setBigState} />,
-            errorElement: <Error />
+
         },
         {
             path: "/quiz",
             element: <QuizPage bigState={bigState} setBigState={setBigState} />,
-            errorElement: <Error />
+
         },
     ]);
 

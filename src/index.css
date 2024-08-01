@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .dot-before {
+        position: relative;
+    }
+
+    .dot-before::before {
+        content: '•';
+        font-size: 1.3rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .items-right {
+        text-align: right;
+    }
+
+
+}
