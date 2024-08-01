@@ -132,7 +132,7 @@ export default function QuizPage({
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">
             <div className="flex flex-col justify-center items-center flex-grow">
-                <div className="flex flex-col justify-center items-left w-96 md:w-3/5">
+                <div className="flex flex-col justify-center items-left w-fit md:w-3/5">
                     <div className="flex items-center mb-4">
                         <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
                         <h2 className="text-2xl font-bold text-black">Quizzie</h2>
