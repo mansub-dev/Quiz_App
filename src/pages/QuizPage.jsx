@@ -130,73 +130,71 @@ export default function QuizPage({
     }
 
     return (
+
         <div className="min-h-screen flex flex-col bg-gray-50">
             <div className="flex flex-col justify-center items-center flex-grow">
-<<<<<<< HEAD
-                <div className="flex flex-col justify-center items-center md:items-left w-5/5 md:w-3/5">
-=======
-                <div className="flex flex-col justify-center items-left w-fit md:w-3/5">
->>>>>>> dc68355b59fd3c3876332a7983acdc9c6bf5472b
-                    <div className="flex items-center mb-4">
-                        <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
-                        <h2 className="text-2xl font-bold text-black">Quizzie</h2>
-                    </div>
-                    <div className="bg-white p-8 border  rounded-lg shadow-md relative w-3/5 h-2/5 md:w-full">
-                        <div
-                            className="absolute top-0 left-0 h-1 bg-green-500 transition-all duration-500 rounded-tl-md"
-                            style={{ width: `${lineWidth}%` }}
-                        />
-                        <div className="md:flex md:flex-row md:justify-between md:w-full md:mb-4 md:p-1 flex flex-col justify-center items-center mb-3 text-xl">
-                            <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono gap-1">
-                                <span className="hidden md:block"> Question</span> {currentIndex + 1} of {questions.length}
-                            </h4>
-                            <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono">
-                                <LuTimer className="mr-2" size={20} /> {formatSeconds(seconds)}
-                            </h4>
+                <div className="flex flex-col justify-center items-center w-full md:w-4/5">
+                    <div className="flex flex-col justify-center items-center w-full md:w-4/5">
+                        <div className="flex items-center mb-4">
+                            <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
+                            <h2 className="text-2xl font-bold text-black">Quizzie</h2>
                         </div>
-                        {questions.length > 0 && (
-                            <div className="grid ">
-                                <h4 className="text-xl font-semibold mb-4">{questions[currentIndex].question}</h4>
-
-                                <div className="grid grid-cols-1 lg:grid-cols-2 lg:mt-4 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-4/5">
-                                    {questions[currentIndex].answers.map((answer, index) => (
-                                        <button
-                                            key={index}
-                                            className={`flex items-start p-2 cursor-pointer mb-5 border rounded-md text-left ${selectedAnswer === index ? "bg-stone-300/80" : "bg-slate-200/40"}`}
-                                            onClick={() => setBigState((prev) => ({ ...structuredClone(prev), selectedAnswer: index }))}
-                                            disabled={quizFinished}
-                                        >
-                                            <span >{String.fromCharCode(65 + index)}.</span>
-                                            <span className="ml-2">{answer}</span>
-                                        </button>
-                                    ))}
-                                </div>
-                                <div className="flex justify-end">
-                                    {currentIndex < questions.length - 1 ? (
-                                        <button
-                                            className="bg-green-600 text-white py-2 px-4 rounded mt-4"
-                                            onClick={handleNext}
-                                        >
-                                            <MdNavigateNext size={20} />
-                                        </button>
-
-                                    ) : (
-
-                                        <button
-                                            className="bg-green-600 text-white py-2 px-4 rounded mt-4"
-                                            onClick={handleSubmit}
-                                        >
-                                            Submit
-                                        </button>
-
-                                    )}
-                                </div>
+                        <div className="bg-white p-8 border  rounded-lg shadow-md relative w-3/5 h-2/5 md:w-full">
+                            <div
+                                className="absolute top-0 left-0 h-1 bg-green-500 transition-all duration-500 rounded-tl-md"
+                                style={{ width: `${lineWidth}%` }}
+                            />
+                            <div className="md:flex md:flex-row md:justify-between md:w-full md:mb-4 md:p-1 flex flex-col justify-center items-center mb-3 text-xl">
+                                <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono gap-1">
+                                    <span className="hidden md:block">Question</span> {currentIndex + 1} of {questions.length}
+                                </h4>
+                                <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono">
+                                    <LuTimer className="mr-2" size={19} /> {formatSeconds(seconds)}
+                                </h4>
                             </div>
-                        )}
+                            {questions.length > 0 && (
+                                <div className="grid ">
+                                    <h4 className="text-xl font-semibold mb-4">{questions[currentIndex].question}</h4>
+
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 lg:mt-4 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-4/5">
+                                        {questions[currentIndex].answers.map((answer, index) => (
+                                            <button
+                                                key={index}
+                                                className={`flex items-start p-2 cursor-pointer mb-5 border rounded-md text-left ${selectedAnswer === index ? "bg-stone-300/80" : "bg-slate-200/40"}`}
+                                                onClick={() => setBigState((prev) => ({ ...structuredClone(prev), selectedAnswer: index }))}
+                                                disabled={quizFinished}
+                                            >
+                                                <span >{String.fromCharCode(65 + index)}.</span>
+                                                <span className="ml-2">{answer}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <div className="flex justify-end">
+                                        {currentIndex < questions.length - 1 ? (
+                                            <button
+                                                className="bg-green-600 text-white py-2 px-4 rounded mt-4"
+                                                onClick={handleNext}
+                                            >
+                                                <MdNavigateNext size={20} />
+                                            </button>
+
+                                        ) : (
+
+                                            <button
+                                                className="bg-green-600 text-white py-2 px-4 rounded mt-4"
+                                                onClick={handleSubmit}
+                                            >
+                                                Submit
+                                            </button>
+
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 }
