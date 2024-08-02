@@ -115,7 +115,7 @@ export default function QuizPage({
                             <div className="text-xl font-semibold">{calculateResults()}/{questions.length}</div>
                         </div>
                     </div>
-                    <p className="mt-3 font-mono">You answered {calculateResults()} out of {questions.length} questions correctly</p>
+                    <p className="mt-3 flex flex-col items-center justify-center md:font-mono">You answered {calculateResults()} out of {questions.length} questions correctly</p>
                     <Link to="/"><button
                         onClick={handleHome}
                         className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
