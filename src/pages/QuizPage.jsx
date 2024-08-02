@@ -133,9 +133,9 @@ export default function QuizPage({
 
         <div className="min-h-screen flex flex-col bg-gray-50">
             <div className="flex flex-col justify-center items-center flex-grow">
-                <div className="flex flex-col justify-center items-center md:w-4/5">
-                    <div className="flex flex-col justify-center items-center md:items-left md:w-4/5">
-                        <div className="flex items-center mb-4">
+                <div className="flex flex-col justify-center items-center  md:w-4/5">
+                    <div className="flex flex-col justify-center items-center  md:items-start md:w-4/5">
+                        <div className="flex  items-start mb-4">
                             <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
                             <h2 className="text-2xl font-bold text-black">Quizzie</h2>
                         </div>
