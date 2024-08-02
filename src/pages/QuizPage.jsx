@@ -115,7 +115,7 @@ export default function QuizPage({
                             <div className="text-xl font-semibold">{calculateResults()}/{questions.length}</div>
                         </div>
                     </div>
-                    <p className="mt-3 flex flex-col items-center justify-center md:font-mono">You answered {calculateResults()} out of {questions.length} questions correctly</p>
+                    <p className="ml-5 border border-red mt-3 flex flex-col items-center justify-center md:font-mono">You have answered {calculateResults()} out of {questions.length} questions correctly.</p>
                     <Link to="/"><button
                         onClick={handleHome}
                         className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
@@ -133,21 +133,22 @@ export default function QuizPage({
 
         <div className="min-h-screen flex flex-col bg-gray-50">
             <div className="flex flex-col justify-center items-center flex-grow">
-                <div className="flex flex-col justify-center items-center w-full md:w-4/5">
-                    <div className="flex flex-col justify-center items-center w-full md:w-4/5">
+                <div className="flex flex-col justify-center items-center md:w-4/5">
+                    <div className="flex flex-col justify-center items-center md:items-left md:w-4/5">
                         <div className="flex items-center mb-4">
                             <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
                             <h2 className="text-2xl font-bold text-black">Quizzie</h2>
                         </div>
-                        <div className="bg-white p-8 border  rounded-lg shadow-md relative w-3/5 h-2/5 md:w-full">
+                        <div className="bg-white p-8 border rounded-lg shadow-md relative w-4/5 h-2/5 md:w-full">
                             <div
                                 className="absolute top-0 left-0 h-1 bg-green-500 transition-all duration-500 rounded-tl-md"
                                 style={{ width: `${lineWidth}%` }}
                             />
-                            <div className="md:flex md:flex-row md:justify-between md:w-full md:mb-4 md:p-1 flex flex-col justify-center items-center mb-3 text-xl">
-                                <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono gap-1">
-                                    <span className="hidden md:block">Question</span> {currentIndex + 1} of {questions.length}
+                            <div className="md:flex md:flex-row md:justify-between md:w-full md:mb-4 md:p-1 flex flex-row gap-1 justify-around items-center mb-3 text-xl">
+                                <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono gap-1 w-fit">
+                                    <span className="hidden md:block">Question</span><span className="block md:hidden">Q</span> {currentIndex + 1} of {questions.length}
                                 </h4>
+                                <div className="block md:hidden">|</div>
                                 <h4 className="flex items-center my-3 text-stone-800 font-medium font-mono">
                                     <LuTimer className="mr-2" size={19} /> {formatSeconds(seconds)}
                                 </h4>
