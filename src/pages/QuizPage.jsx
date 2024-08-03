@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { formatSeconds } from "../utils/utils";
-import mindImage from "/mind.svg";
+import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { LuTimer } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
@@ -132,13 +132,13 @@ export default function QuizPage({
     return (
 
         <div className="min-h-screen flex flex-col bg-gray-50">
-            <div className="flex flex-col justify-center items-center flex-grow">
+            <div className="ml-12 md:flex md:flex-col md:items-start mb-4">
+                <Header />
+            </div>
+            <div className="mt-23 flex flex-col justify-center items-center flex-grow">
                 <div className="flex flex-col justify-center items-center  md:w-4/5">
                     <div className="flex flex-col justify-center items-center  md:items-start md:w-4/5">
-                        <div className="flex  items-start mb-4">
-                            <img src={mindImage} alt="Quiz Icon" className="w-10 h-10 mr-3" />
-                            <h2 className="text-2xl font-bold text-black">Quizzie</h2>
-                        </div>
+
                         <div className="bg-white p-8 border rounded-lg shadow-md relative w-4/5 h-2/5 md:w-full">
                             <div
                                 className="absolute top-0 left-0 h-1 bg-green-500 transition-all duration-500 rounded-tl-md"
@@ -197,5 +197,6 @@ export default function QuizPage({
                 </div>
             </div>
         </div>
+
     );
 }
