@@ -10,8 +10,7 @@ export default function GetPage({ bigState, setBigState }) {
 
     const fetchData = async () => {
         try {
-            // const genAI = new GoogleGenerativeAI("AIzaSyC2c8j6egl2bA4PIHB3iTqx5SoEXmBn7BM");
-            const genAI = new GoogleGenerativeAI("AIzaSyD4Dns1LSuN_90rwJQSBL-8dMzGpIuuDJU");
+            const genAI = new GoogleGenerativeAI("AIzaSyAOhtOQcYhkvRyt2fb0kJ0fGEtuMUonr_g");
 
             const model = genAI.getGenerativeModel({
                 model: "gemini-1.5-flash",
