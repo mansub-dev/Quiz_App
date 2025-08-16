@@ -10,9 +10,7 @@ export default function GetPage({ bigState, setBigState }) {
   const fetchData = async () => {
     try {
       const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-      console.log(API_KEY);
       const genAI = new GoogleGenerativeAI(API_KEY);
-      console.log(genAI);
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash",
       });
